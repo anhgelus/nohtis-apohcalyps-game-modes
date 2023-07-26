@@ -1,6 +1,7 @@
 tellraw @a ["",{"text":"[EXTRACTION]","color":"dark_gray"},{"text":" Creating the map"}]
 
 # Kill all armor stands
+execute at @e[tag=extract,type=minecraft:armor_stand] run setblock ~ ~ ~ minecraft:air
 kill @e[tag=extract,type=minecraft:armor_stand]
 
 # Reset all scoreboards
