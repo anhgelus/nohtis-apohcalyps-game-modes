@@ -1,4 +1,4 @@
-# Nohtis Apohcalyps Demo
+# Nohtis Apohcalyps Game Modes
 
-All of configuration used by the event called `Nohtis Apohcalyps Demo`
+Simple game modes made with the modpack [Nohtis Apohcalyps](https://modrinth.com/modpack/nohtis-apohcalyps).
 
