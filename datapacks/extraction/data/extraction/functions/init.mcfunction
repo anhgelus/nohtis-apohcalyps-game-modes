@@ -8,6 +8,9 @@ kill @e[tag=extract,type=minecraft:armor_stand]
 scoreboard objectives remove death
 scoreboard objectives remove extract 
 
+# Reset players
+clear @a[scores={extract=0}]
+
 # Generate 5 armor stands
 summon minecraft:armor_stand 0 100 0 {PersistenceRequired:1b,NoGravity:1b,Invulnerable:1,Tags:["extract"],Invisible:1b}
 summon minecraft:armor_stand 0 100 0 {PersistenceRequired:1b,NoGravity:1b,Invulnerable:1,Tags:["extract"],Invisible:1b}
@@ -33,6 +36,7 @@ worldborder set 1000
 # Set up the players
 spreadplayers 0 0 25 450 false @a
 gamemode survival @a
+execute as @a[scores={extract=0}] run function extract:starter_kit
 
 tellraw @a ["",{"text":"[EXTRACTION]","color":"dark_gray"},{"text":" Map generated and game started!"}]
 
