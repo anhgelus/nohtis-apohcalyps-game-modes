@@ -4,6 +4,7 @@ scoreboard objectives add config dummy
 scoreboard players set game.min config 15
 scoreboard players set game.second config 0 
 scoreboard players set game.tick config 0 
+scoreboard players set game.started config 0 
 
 scoreboard players set time.tick config 20 
 scoreboard players set time.second config 60 

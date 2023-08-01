@@ -10,4 +10,4 @@ scoreboard players operation msg.mod config %= msg.time.tick config
 
 execute if score msg.mod config matches 0 unless score game.time config matches 0 unless score border.tick config = game.time config run function extraction:remaining
 
-scoreboard players add game.time config 1
+execute if score game.started config matches 1 run scoreboard players add game.time config 1
