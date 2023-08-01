@@ -22,6 +22,7 @@ kill @e[tag=extract,type=minecraft:area_effect_cloud]
 
 # Reset all scoreboards
 scoreboard objectives remove death
+scoreboard objectives remove isDead 
 
 # Reset players
 execute as @a unless score @s extract matches 1 run clear @s
@@ -36,7 +37,7 @@ summon minecraft:area_effect_cloud 0 100 0 {Duration:2147483647,Tags:["extract"]
 
 # Set up scoreboards
 scoreboard objectives add death deathCount {"text":"Mort","color":"red"}
-scoreboard objectives add isDead dead
+scoreboard objectives add isDead dummy
 execute as @a run scoreboard players set @p death 0
 execute as @a run scoreboard players set @p isDead 0 
 
@@ -58,5 +59,6 @@ scoreboard objectives remove extract
 scoreboard objectives add extract dummy 
 scoreboard players set @a extract 0
 
+scoreboard players set game.started config 0
 tellraw @a ["",{"text":"[EXTRACTION]","color":"dark_gray"},{"text":" Map generated and game started!"}]
 
