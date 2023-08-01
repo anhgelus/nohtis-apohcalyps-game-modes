@@ -18,7 +18,9 @@ summon minecraft:armor_stand 0 100 0 {PersistenceRequired:1b,NoGravity:1b,Invuln
 
 # Set up scoreboards
 scoreboard objectives add death deathCount {"text":"Mort","color":"red"}
+scoreboard objectives add isDead dead
 execute as @a run scoreboard players set @p death 0
+execute as @a run scoreboard players set @p isDead 0 
 
 # Set up armor stands
 spreadplayers 0 0 40 100 false @e[tag=extract,type=minecraft:armor_stand]
