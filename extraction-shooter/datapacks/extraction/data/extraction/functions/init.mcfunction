@@ -1,4 +1,15 @@
 tellraw @a ["",{"text":"[EXTRACTION]","color":"dark_gray"},{"text":" Creating the map"}]
+# update config
+scoreboard players operation game.second config = game.min config
+scoreboard players operation game.second config *= time.second config
+scoreboard players operation game.tick config = game.second config
+scoreboard players operation game.tick config *= time.tick config
+scoreboard players set game.time config 0
+
+scoreboard players operation border.second config = border.min config
+scoreboard players operation border.second config *= time.second config
+scoreboard players operation border.tick config = border.second config
+scoreboard players operation border.tick config *= time.tick config
 
 # Kill all armor stands
 execute at @e[tag=extract,type=minecraft:area_effect_cloud] run setblock ~ ~ ~ minecraft:air
