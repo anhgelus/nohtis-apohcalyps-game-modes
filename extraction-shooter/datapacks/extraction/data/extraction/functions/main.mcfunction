@@ -5,4 +5,9 @@ execute at @e[tag=extract,type=minecraft:area_effect_cloud] run function extract
 execute if score game.time config = game.tick config run function extraction:end
 execute if score border.tick config = game.time config run function extraction:border
 
+scoreboard players operation msg.mod config = game.time config
+scoreboard players operation msg.mod config %= msg.time.tick config
+
+execute if score msg.mod config matches 0 unless score game.time config matches 0 unless score border.tick config = game.time config run function extraction:remaining
+
 scoreboard players add game.time config 1

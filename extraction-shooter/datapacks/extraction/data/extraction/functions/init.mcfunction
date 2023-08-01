@@ -11,6 +11,11 @@ scoreboard players operation border.second config *= time.second config
 scoreboard players operation border.tick config = border.second config
 scoreboard players operation border.tick config *= time.tick config
 
+scoreboard players operation msg.time.second config = msg.time.min config
+scoreboard players operation msg.time.second config *= time.second config
+scoreboard players operation msg.time.tick config = msg.time.second config
+scoreboard players operation msg.time.tick config *= time.tick config
+
 # Kill all armor stands
 execute at @e[tag=extract,type=minecraft:area_effect_cloud] run setblock ~ ~ ~ minecraft:air
 kill @e[tag=extract,type=minecraft:area_effect_cloud]
