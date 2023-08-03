@@ -38,8 +38,8 @@ summon minecraft:area_effect_cloud 0 100 0 {Duration:2147483647,Tags:["extract"]
 # Set up scoreboards
 scoreboard objectives add death deathCount {"text":"Mort","color":"red"}
 scoreboard objectives add isDead dummy
-execute as @a run scoreboard players set @p death 0
-execute as @a run scoreboard players set @p isDead 0 
+scoreboard players set @a death 0
+scoreboard players set @a isDead 0 
 
 # Set up armor stands
 spreadplayers 0 0 40 100 false @e[tag=extract,type=minecraft:area_effect_cloud]
@@ -54,11 +54,11 @@ worldborder set 300
 # Set up the players
 spreadplayers 0 0 25 100 false @a
 gamemode survival @a
-execute as @a unless score @s extract matches 1 run function extract:starter_kit
+execute as @a unless score @s extract matches 1 run function extraction:starter_kit
 scoreboard objectives remove extract
 scoreboard objectives add extract dummy 
 scoreboard players set @a extract 0
 
-scoreboard players set game.started config 0
+scoreboard players set game.started config 1 
 tellraw @a ["",{"text":"[EXTRACTION]","color":"dark_gray"},{"text":" Map generated and game started!"}]
 
