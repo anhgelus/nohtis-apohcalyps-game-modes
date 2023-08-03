@@ -1,4 +1,4 @@
 tellraw @a ["",{"text":"[EXTRACTION] ","color":"dark_gray"},{"selector":"@s"}, {"text":" is dead!"}]
 gamemode spectator @s
-scoreboard players set @p isDead 1 
+scoreboard players set @s isDead 1 
 
