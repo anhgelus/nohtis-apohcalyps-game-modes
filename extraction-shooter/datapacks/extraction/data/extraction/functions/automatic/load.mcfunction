@@ -12,6 +12,7 @@ scoreboard players set time.second config 60
 scoreboard players set border.min config 5
 scoreboard players set border.second config 0 
 scoreboard players set border.tick config 0 
+scoreboard players set border.size config 300
 
 scoreboard players set msg.time.min config 5
 scoreboard players set msg.time.second config 0 
@@ -20,3 +21,5 @@ scoreboard players set msg.mod config 0
 scoreboard players set msg.remaining.tick config 0
 scoreboard players set msg.remaining.second config 0
 scoreboard players set msg.remaining.min config 0
+
+worldborder set 1
