@@ -18,6 +18,9 @@ scoreboard players operation msg.time.tick config *= time.tick config
 
 scoreboard players operation border.size.real config = border.size config
 
+scoreboard players set game.player.total config 0
+scoreboard players set game.player.spectator config 0
+
 # Kill all armor stands
 execute at @e[tag=extract,type=minecraft:area_effect_cloud] run setblock ~ ~ ~ minecraft:air
 kill @e[tag=extract,type=minecraft:area_effect_cloud]
@@ -25,6 +28,7 @@ kill @e[tag=extract,type=minecraft:area_effect_cloud]
 # Reset all scoreboards
 scoreboard objectives remove death
 scoreboard objectives remove isDead 
+scoreboard objectives remove isInGame
 
 # Reset players
 execute as @a unless score @s extract matches 1 run clear @s
@@ -41,6 +45,7 @@ summon minecraft:area_effect_cloud 0 100 0 {Duration:2147483647,Tags:["extract"]
 # Set up scoreboards
 scoreboard objectives add death deathCount {"text":"Mort","color":"red"}
 scoreboard objectives add isDead dummy
+scoreboard objectives add isInGame dummy
 scoreboard players set @a death 0
 scoreboard players set @a isDead 0 
 
@@ -58,6 +63,8 @@ function extraction:private/border/setup
 spreadplayers 0 0 25 100 false @a
 gamemode survival @a
 execute as @a unless score @s extract matches 1 run function extraction:starter_kit
+execute as @a run scoreboard players add game.player.total config 1 
+execute as @a run scoreboard players add @s isInGame 1
 scoreboard objectives remove extract
 scoreboard objectives add extract dummy 
 scoreboard players set @a extract 0
