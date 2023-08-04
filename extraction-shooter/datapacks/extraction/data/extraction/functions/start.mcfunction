@@ -26,7 +26,8 @@ scoreboard objectives remove isDead
 
 # Reset players
 execute as @a unless score @s extract matches 1 run clear @s
-execute as @a unless score @s extract matches 1 run effect clear @s 
+execute as @a unless score @s extract matches 1 run effect clear @s
+effect clear @a hordes:infected 
 
 # Generate armor stands
 tellraw @a ["",{"text":"[EXTRACTION]","color":"dark_gray"},{"text":" Generating the exits..."}]
